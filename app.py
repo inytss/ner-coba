@@ -82,14 +82,12 @@ def tes_send_json():
     nama = data['nama']
     usia = data['usia']
     pekerjaan = data['pekerjaan']
-    
     return ("Halo, {nama}. Usiamu adalah {usia} dan pekerjaanmu adalah {pekerjaan}".format(nama=nama, usia=usia, pekerjaan=pekerjaan))
 
 @app.route('/tes_return_json', methods=['POST'])
 def tes_return_json():
     data = request.get_json() # proses membaca json yang dikirim 
     df = pd.DataFrame([data]) # mengolah data menjadi dataframe
-
     return (df.to_json()) # mengembalikan dataframe dalam bentuk json
 
 @app.route('/get_entities', methods=['POST'])
